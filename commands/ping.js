@@ -1,7 +1,6 @@
 const  Command = require('./command.js')
 class Ping extends Command {
     static match(message) {
-        // return message.content.startsWith('!ping')
         return this.startsWith(message, 'ping')
     }
 
