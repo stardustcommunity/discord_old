@@ -14,7 +14,19 @@ const MessageRuler = require('./App/MessageRuler')
 
 client.on('ready', function () {
     client.user.setActivity('servir la communauté');
+
     console.log('Bot ready!');
+});
+
+
+var cron = require('node-cron');
+const Webhook = require("webhook-discord")
+const Hook = new Webhook("https://discordapp.com/api/webhooks/425745192394686484/hbJ4d3fCx4P6uW0ugONyR1lAfEtmGOnui-TRUt0s6NmKdHcNBEY3mDQI_EXmORcJfPf_")
+var Lun = require("lun-phase");
+var lun = new Lun();
+cron.schedule('0 0 * * *', function(){
+    var now = lun.now();
+    Hook.info("Lunar phase", 'Today is\'t ' + now.name + ' ' + now.emoji + ' Age:' + now.age + ' Phase: ' + now.phase)
 });
 
 client.on('message', function (msg) {
