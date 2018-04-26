@@ -9,6 +9,8 @@ var elasticsearchClient = new elasticsearch.Client({
 //const app = express()
 const Ping = require('./commands/ping')
 const Clear = require('./commands/clear')
+const Radio = require('./commands/radio')
+const Stop = require('./commands/radio_stop')
 const MessageLogger = require('./App/MessageLogger')
 const MessageRuler = require('./App/MessageRuler')
 
@@ -30,8 +32,8 @@ cron.schedule('0 0 * * *', function(){
 });
 
 client.on('message', function (msg) {
-    Ping.parse(msg) || Clear.parse(msg)
-    MessageLogger.newMessage(msg, elasticsearchClient)
+    Ping.parse(msg) || Clear.parse(msg) || Radio.parse(msg) || Stop.parse(msg)
+    // MessageLogger.newMessage(msg, elasticsearchClient)
     MessageRuler.newMessage(msg);
 });
 
