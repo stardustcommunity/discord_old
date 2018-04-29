@@ -17,26 +17,42 @@ class RadionomyWatcher {
             "https://api.stardustcommunity.ga/radio/info"
             ).then(response => {
                 console.log('called')
-            var track = response.data.data.track
-            var time = response.data.data.time
+                var track = response.data.data.track
+                var time = response.data.data.time
 
-            console.log("On air : " + track.title + " - " + track.artists)
+                if (track.title == "Advert:TargetSpot") {
+                    console.log('Publicité!')
+                    this.discordClient.voiceConnections.first().dispatcher.setVolume(0.1)
 
-            this.discordClient.channels.find('id', textChannelId).send(new Discord.RichEmbed({
-                title: "Je joue en ce moment",
-                description: track.title + ' - ' + track.artists,
-                image: {
-                    url: track.cover
-                },
-            }))
+                    this.discordClient.channels.find('id', textChannelId).send(new Discord.RichEmbed({
+                        title: "Je joue en ce moment",
+                        description: 'Petite page de publicité',
+                        image: {
+                            url: track.cover
+                        },
+                    }))
+                }else{
+                    console.log('PAS DE Publicité!')
+                    this.discordClient.voiceConnections.first().dispatcher.setVolume(1)
 
-            //convert form msec to sec
-            // var haveToWait = track.play_duration / 1000
+                    this.discordClient.channels.find('id', textChannelId).send(new Discord.RichEmbed({
+                        title: "Je joue en ce moment",
+                        description: track.title + ' - ' + track.artists,
+                        image: {
+                            url: track.cover
+                        },
+                    }))
+                }
 
-            setTimeout(() => {
-                console.log('next music')
-                this.newLoop()
-            }, (time.end_in.seconds + 8 ) * 1000);
+                console.log("On air : " + track.title + " - " + track.artists)
+
+                //convert form msec to sec
+                // var haveToWait = track.play_duration / 1000
+
+                setTimeout(() => {
+                    console.log('next music')
+                    this.newLoop()
+                }, (time.end_in.seconds + 8 ) * 1000);
         }).catch((error) => {
             console.log("ERROR: RADIONOMY WATCHER")
         });
