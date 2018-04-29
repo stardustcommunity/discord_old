@@ -33,15 +33,19 @@ class RadionomyWatcher {
                     }))
                 }else{
                     console.log('PAS DE Publicité!')
-                    this.discordClient.voiceConnections.first().dispatcher.setVolume(1)
 
-                    this.discordClient.channels.find('id', textChannelId).send(new Discord.RichEmbed({
-                        title: "Je joue en ce moment",
-                        description: track.title + ' - ' + track.artists,
-                        image: {
-                            url: track.cover
-                        },
-                    }))
+                    if (this.discordClient.voiceConnections.first() !== undefined) {
+                        this.discordClient.voiceConnections.first().dispatcher.setVolume(1)
+                        this.discordClient.channels.find('id', textChannelId).send(new Discord.RichEmbed({
+                            title: "Je joue en ce moment",
+                            description: track.title + ' - ' + track.artists,
+                            image: {
+                                url: track.cover
+                            },
+                        }))
+                    }
+
+                    this.discordClient.user.setActivity(track.title + ' - ' + track.artists)
                 }
 
                 console.log("On air : " + track.title + " - " + track.artists)
@@ -55,6 +59,13 @@ class RadionomyWatcher {
                 }, (time.end_in.seconds + 8 ) * 1000);
         }).catch((error) => {
             console.log("ERROR: RADIONOMY WATCHER")
+            console.log(error)
+            console.log("END OF ERROR: RADIONOMY WATCHER")
+
+            console.log('retrying in 2 sec...')
+            setTimeout(() => {
+                this.newLoop()
+            }, 2000);
         });
     }
 
