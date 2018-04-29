@@ -1,0 +1,35 @@
+{
+  "ping": "Pong!",
+  "message_ruler": {
+    "partage_invalid": "Dans le channel #partage, un message ne contenant pas d'url est considéré comme étant spam. Aussi nous avons supprimé ce message. Si vous avez une réclamation, contacter les Modérateurs.",
+    "about": {
+      "description": "Un bot pour la communauté"
+    }
+  },
+  "clear": {
+    "all": "Des messages ont été supprimé avec succès",
+    "some": "**{$1}** message(s) viennent d'être supprimé",
+    "permissions_invalid": "Tu n'a pas asser de permissions"
+  },
+  "radio": {
+    "start": {
+      "success": ":musical_note: C'est parti!",
+      "error": {
+        "already_here": ":warning: Ahhh! tu pensais vraiment m'avoir ! Tu est déjà en train de m'écouter",
+        "already": ":warning: Whoops! Je suis déjà entrain de jouer ma musique dans un autre channel!",
+        "nobody": ":warning: Hum, j'ai pas l'intention de jouer ma musique devant une salle... vide, rejoins un channel vocal avant de venir me parler!",
+        "invalid_channel": ":warning: C'est dommage mais là je peux pas venir dans ton channel car c'est pas le bon, va dans \"Stardust Radio\""
+      }
+    },
+    "error": ":warning: Erreur: Une erreur fatale est survenu lors de la lecture du flux audio",
+    "end": ":warning: Il semblerait que le flux audio se soit arrêté!",
+    "info": {
+      "embed_title": "Je joue en ce moment",
+      "error": ":warning: Houston we have a problem... avec l'API de Radionomy. ``` HTTP ERROR AXIOS {$errorCode}```"
+    },
+    "stop": {
+      "no_connections": "Bah... comment dire... je suis pas connecté à un channel vocal donc bon ça risque pas de déranger quelqu'un",
+      "success": "Alors comme ça on aime pas ma musique ?"
+    }
+  }
+}

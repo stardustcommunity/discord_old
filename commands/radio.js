@@ -20,7 +20,7 @@ class Radio extends Command {
                             message.reply(":musical_note: C'est parti!");
 
                             dispatcher.on('end', () => {
-                                message.client.channels.find('id', process.env.DISCORD_RADIO_TEXT_CHANNEL_ID).send(":warning: Il semblerait que le flux audio se soit arrêté!")
+                                // message.client.channels.find('id', process.env.DISCORD_RADIO_TEXT_CHANNEL_ID).send(":warning: Il semblerait que le flux audio se soit arrêté!")
 
                                 console.log('end of the music!')
                                 message.member.voiceChannel.leave()

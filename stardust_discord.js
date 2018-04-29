@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 var elasticsearch = require('elasticsearch');
 var elasticsearchClient = new elasticsearch.Client({
-    host: 'https://logger:KQSKSAAADSK23299392@elasticsearch.stan-tab.fr:443',
+    host: process.env.ELASTICSEARCH_URL,
     log: 'trace'
 });
 require('dotenv').config()
@@ -37,14 +37,14 @@ cron.schedule('0 0 * * *', function () {
 
 client.on('message', function (msg) {
     Ping.parse(msg) || Clear.parse(msg) || Radio.parse(msg) || RadioInfo.parse(msg) || Stop.parse(msg) || About.parse(msg) || Env.parse(msg)
-    MessageLogger.newMessage(msg, elasticsearchClient)
+    // MessageLogger.newMessage(msg, elasticsearchClient)
     MessageRuler.newMessage(msg);
 });
 
 //RADIONOMY
-// const RadionomyWatcher = require('./App/RadionomyWatcher')
-// const RadionomyWatcherInstance = new RadionomyWatcher(client)
-// RadionomyWatcherInstance.newLoop()
+const RadionomyWatcher = require('./App/RadionomyWatcher')
+const RadionomyWatcherInstance = new RadionomyWatcher(client)
+RadionomyWatcherInstance.newLoop()
 
 //app.get('/send/:text', function (req, res) {
 //  var channel = client.channels.get('332195123880525824');
