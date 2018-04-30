@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 var moment = require('moment');
 class RadionomyWatcher {
     constructor(discordClient) {
-        console.log(discordClient.channels  )
+        console.log(discordClient.channels)
         this.discordClient = discordClient;
         // this.radioUid = radioUid;
         // this.textChannelId = textChannelId;
@@ -22,15 +22,19 @@ class RadionomyWatcher {
 
                 if (track.title == "Advert:TargetSpot") {
                     console.log('Publicité!')
-                    this.discordClient.voiceConnections.first().dispatcher.setVolume(0.1)
+                    if (this.discordClient.voiceConnections.first() !== undefined) {
+                        console.log(this.discordClient.voiceConnections.first().dispatcher.setVolume(0))
 
-                    this.discordClient.channels.find('id', textChannelId).send(new Discord.RichEmbed({
-                        title: "Je joue en ce moment",
-                        description: 'Petite page de publicité',
-                        image: {
-                            url: track.cover
-                        },
-                    }))
+                        this.discordClient.channels.find('id', textChannelId).send(new Discord.RichEmbed({
+                            title: "Je joue en ce moment",
+                            description: 'Petite page de publicité',
+                            image: {
+                                url: track.cover
+                            },
+                        }))
+                    }
+
+                    this.discordClient.user.setActivity('Petite page de publicité', "LISTENING")
                 }else{
                     console.log('PAS DE Publicité!')
 
@@ -45,7 +49,7 @@ class RadionomyWatcher {
                         }))
                     }
 
-                    this.discordClient.user.setActivity(track.title + ' - ' + track.artists)
+                    console.log(this.discordClient.user.setActivity(track.title + ' - ' + track.artists, "LISTENING"))
                 }
 
                 console.log("On air : " + track.title + " - " + track.artists)
