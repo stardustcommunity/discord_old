@@ -34,7 +34,7 @@ class RadionomyWatcher {
                         }))
                     }
 
-                    this.discordClient.user.setActivity('Petite page de publicité', "LISTENING")
+                    this.discordClient.user.setActivity('Petite page de publicité', { type: 'LISTENING' })
                 }else{
                     console.log('PAS DE Publicité!')
 
@@ -49,7 +49,7 @@ class RadionomyWatcher {
                         }))
                     }
 
-                    console.log(this.discordClient.user.setActivity(track.title + ' - ' + track.artists, "LISTENING"))
+                    console.log(this.discordClient.user.setActivity(track.title + ' - ' + track.artists, { type: 'LISTENING' }))
                 }
 
                 console.log("On air : " + track.title + " - " + track.artists)
