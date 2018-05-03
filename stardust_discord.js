@@ -1,5 +1,11 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const I18n = require("i18n")
+I18n.configure({
+    locales:['fr_FR'],
+    defaultLocale: 'fr_FR',
+    directory: __dirname + '/locales'
+});
 var elasticsearch = require('elasticsearch');
 var elasticsearchClient = new elasticsearch.Client({
     host: process.env.ELASTICSEARCH_URL,
@@ -18,6 +24,7 @@ const Env = require('./commands/env')
 const About = require('./commands/about')
 const MessageLogger = require('./App/MessageLogger')
 const MessageRuler = require('./App/MessageRuler')
+const MessageResponder = require('./App/MessageResponder')
 
 client.on('ready', function () {
     client.user.setActivity('servir la communauté');
@@ -35,10 +42,12 @@ cron.schedule('0 0 * * *', function () {
     Hook.info("Lunar phase", 'Today is\'t ' + now.name + ' ' + now.emoji + ' Age:' + now.age + ' Phase: ' + now.phase)
 });
 
-client.on('message', function (msg) {
+client.on('message', (msg) => {
+    msg.i18n = I18n
     Ping.parse(msg) || Clear.parse(msg) || Radio.parse(msg) || RadioInfo.parse(msg) || Stop.parse(msg) || About.parse(msg) || Env.parse(msg)
     // MessageLogger.newMessage(msg, elasticsearchClient)
     MessageRuler.newMessage(msg);
+    MessageResponder.newMessage(msg);
 });
 
 //RADIONOMY

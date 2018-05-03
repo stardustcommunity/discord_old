@@ -13,6 +13,12 @@ class RadionomyWatcher {
     newLoop() {
         console.log('new loop called')
         var textChannelId = process.env.DISCORD_RADIO_TEXT_CHANNEL_ID
+        if (this.discordClient.voiceConnections.first() !== undefined) {
+            if (this.discordClient.voiceConnections.first().channel.members.first().id == this.discordClient.user.id) {
+              this.discordClient.voiceConnections.first().disconnect()
+              console.log('disconnected from voiceConnection beacause none client listening.')
+            }
+        }
         axios.get(
             "https://api.stardustcommunity.ga/radio/info"
             ).then(response => {
@@ -49,7 +55,7 @@ class RadionomyWatcher {
                         }))
                     }
 
-                    console.log(this.discordClient.user.setActivity(track.title + ' - ' + track.artists, { type: 'LISTENING' }))
+                    this.discordClient.user.setActivity(track.title + ' - ' + track.artists, { type: 'LISTENING' })
                 }
 
                 console.log("On air : " + track.title + " - " + track.artists)
