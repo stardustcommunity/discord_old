@@ -1,5 +1,5 @@
 {
-  "name": "fr_badblock_discord",
+  "name": "stardustcommunity_discord",
   "dependencies": {
     "axios": "^0.18.0",
     "discord.js": "^11.1.0",
