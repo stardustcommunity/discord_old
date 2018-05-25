@@ -69,6 +69,4 @@ RadionomyWatcherInstance.newLoop()
 // console.log('Example app listening on port 3000!')
 //})
 
-
-// client.login('NDE5MjMzNzc0NTA1NTU4MDE4.DXtJag.lj7iI2fTdyQVkLyW14KxpylN9gE');
 client.login(process.env.DISCORD_TOKEN);
