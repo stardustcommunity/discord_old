@@ -5,6 +5,7 @@ class Radio extends Command {
     }
 
     static action(message) {
+        message.channel.startTyping()
         if (message.client.voiceConnections.first() == undefined) {
             if (message.member.voiceChannel) {
                 if (message.member.voiceChannel.id == process.env.DISCORD_RADIO_VOICE_CHANNEL_ID) {
@@ -12,11 +13,10 @@ class Radio extends Command {
                         .then(connection => { // Connection is an instance of VoiceConnection
                             const dispatcher = connection.playArbitraryInput('http://streaming.radionomy.com/Stardust');
 
-                            // const dispatcher = connection.playFile("D:\\Users\\mbess\\Music\\Developers.mp3");
-                            // const dispatcher = connection.playBroadcast()
-                            // Store.state.StreamDispatcher = dispatcher
                             console.log('new radio dispatcher')
-                            // dispatcher.setVolume(); // Set the volume to 50%
+                            //
+                            // dispatcher.setVolume(1);
+
                             message.reply(":musical_note: C'est parti!");
 
                             dispatcher.on('end', () => {
@@ -57,6 +57,7 @@ class Radio extends Command {
 
             }
         }
+        message.channel.stopTyping()
     }
 }
 module.exports = Radio

@@ -1,5 +1,6 @@
 {
   "ping": "Pong!",
+  "default_activity": "Servir la communauté !",
   "message_ruler": {
     "partage_invalid": "Dans le channel #partage, un message ne contenant pas d'url est considéré comme étant spam. Aussi nous avons supprimé ce message. Si vous avez une réclamation, contacter les Modérateurs.",
     "about": {
@@ -12,6 +13,7 @@
     "permissions_invalid": "Tu n'a pas asser de permissions"
   },
   "radio": {
+    "ad": "Grosse page de publicité",
     "start": {
       "success": ":musical_note: C'est parti!",
       "error": {
@@ -52,6 +54,13 @@
       "lel",
       "Je confirme",
       "Oui on peut affirmer ça",
-      "En effet"
+      "En effet",
+      "C'est en tout cas ce qu'affirment les chercheurs.",
+      "Et n'oublie pas (même si ça n'a aucun rapport) : nous ne sommes que de la poussière..."
+  ],
+  "stardust_congrat": [
+    ":wink: ta compris ?",
+    "Bah écoute... je ne peux que te féliciter",
+    ":thinking: :thinking: :thinking: c'était vraiment dur"
   ]
 }

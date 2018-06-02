@@ -1,72 +1,52 @@
 const axios = require('axios')
-const convert = require('xml-js');
-const Discord = require("discord.js");
+const convert = require('xml-js')
+const Discord = require("discord.js")
+const RadioMetas = require('../App/RadioMetas.js')
 var moment = require('moment');
 class RadionomyWatcher {
-    constructor(discordClient) {
-        console.log(discordClient.channels)
+    constructor(discordClient, I18n) {
         this.discordClient = discordClient;
-        // this.radioUid = radioUid;
-        // this.textChannelId = textChannelId;
+        this.i18n = I18n;
+        this.textChannelId = process.env.DISCORD_RADIO_TEXT_CHANNEL_ID;
     }
 
     newLoop() {
-        console.log('new loop called')
-        var textChannelId = process.env.DISCORD_RADIO_TEXT_CHANNEL_ID
         if (this.discordClient.voiceConnections.first() !== undefined) {
             if (this.discordClient.voiceConnections.first().channel.members.first().id == this.discordClient.user.id) {
               this.discordClient.voiceConnections.first().disconnect()
-              console.log('disconnected from voiceConnection beacause none client listening.')
+              console.log('disconnected from voiceConnection because none client listening.')
             }
         }
-        axios.get(
-            "https://api.stardustcommunity.ga/radio/info"
-            ).then(response => {
-                console.log('called')
-                var track = response.data.data.track
-                var time = response.data.data.time
+        const context = new RadioMetas()
+        context.getMetas().then(response => {
 
-                if (track.title == "Advert:TargetSpot") {
-                    console.log('Publicité!')
-                    if (this.discordClient.voiceConnections.first() !== undefined) {
-                        console.log(this.discordClient.voiceConnections.first().dispatcher.setVolume(0))
+          var track = response.track
 
-                        this.discordClient.channels.find('id', textChannelId).send(new Discord.RichEmbed({
-                            title: "Je joue en ce moment",
-                            description: 'Petite page de publicité',
-                            image: {
-                                url: track.cover
-                            },
-                        }))
-                    }
+          if (response.is_ad) {
+            var showed_title = this.i18n.__('radio').ad
+            var volume = 0
+          }else{
+            var showed_title = track.title + " - " + track.artists
+            var volume = 1
+          }
 
-                    this.discordClient.user.setActivity('Petite page de publicité', { type: 'LISTENING' })
-                }else{
-                    console.log('PAS DE Publicité!')
+          if (this.discordClient.voiceConnections.first() !== undefined) {
+              console.log(this.discordClient.voiceConnections.first().dispatcher.setVolume(volume))
 
-                    if (this.discordClient.voiceConnections.first() !== undefined) {
-                        this.discordClient.voiceConnections.first().dispatcher.setVolume(1)
-                        this.discordClient.channels.find('id', textChannelId).send(new Discord.RichEmbed({
-                            title: "Je joue en ce moment",
-                            description: track.title + ' - ' + track.artists,
-                            image: {
-                                url: track.cover
-                            },
-                        }))
-                    }
+              this.discordClient.channels.find('id', this.textChannelId).send(new Discord.RichEmbed({
+                  title: "Je joue en ce moment",
+                  description: showed_title,
+                  image: {
+                      url: track.cover
+                  }
+              }))
+          }
+          this.discordClient.user.setActivity(showed_title, { type: 'LISTENING' })
+          console.log("On air : " + showed_title)
 
-                    this.discordClient.user.setActivity(track.title + ' - ' + track.artists, { type: 'LISTENING' })
-                }
-
-                console.log("On air : " + track.title + " - " + track.artists)
-
-                //convert form msec to sec
-                // var haveToWait = track.play_duration / 1000
-
-                setTimeout(() => {
-                    console.log('next music')
-                    this.newLoop()
-                }, (time.end_in.seconds + 8 ) * 1000);
+          setTimeout(() => {
+              this.newLoop()
+          }, (response.end_in + 300));
         }).catch((error) => {
             console.log("ERROR: RADIONOMY WATCHER")
             console.log(error)
