@@ -35,6 +35,8 @@
     }
   },
   "when_mentioned": [
+      "Alors la, bravo, bravo, on dit bravo !",
+      "Nan sérieux ?"
       "Hein quoi ? Nan c'est pas vrai",
       "Je pense que non",
       "Oui ?",
@@ -45,9 +47,9 @@
       "Vraiment je pense être doué d'une intelligence... sans frontière",
       "Toi et moi, on s'aime ?",
       "C'est vraiment ce qui fait notre amitié, oui.",
-      "Roger roll discovery",
+      "Roger roll, Discovery",
       "Kopy that",
-      "Ohh! We have lift off! Lift off of the space shuttle Columbia!",
+      "Main engine egnition, 3, 2, 1. Boosters ignition, And lift off! We have lift off! Lift off of the space shuttle Columbia!",
       "Hey hey",
       "Je t'aime :heart:",
       "Tout à fait d'accord",
@@ -56,7 +58,16 @@
       "Oui on peut affirmer ça",
       "En effet",
       "C'est en tout cas ce qu'affirment les chercheurs.",
-      "Et n'oublie pas (même si ça n'a aucun rapport) : nous ne sommes que de la poussière..."
+      "Et n'oublie pas (même si ça n'a aucun rapport) : nous ne sommes que de la poussière...",
+      "One Bravo",
+      "Apollo 12, try SCE to AUX over",
+      "I copy that",
+      "We are go for launch",
+      "Huston Flight is go",
+      "Discovery, Huston. You are go at throtlle up.",
+      "Copy staging",
+      "Five four three two one and lift off",
+      "Comment faire ? Comment gérer tout ces gens... :thinking:"
   ],
   "stardust_congrat": [
     ":wink: ta compris ?",
