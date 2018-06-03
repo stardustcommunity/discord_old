@@ -1,37 +1,50 @@
 {
   "ping": "Pong!",
+  "about": {
+    "created_by": "Crée par",
+    "description": "Un bot pour la communauté",
+    "environment": "Environment",
+    "title": "Stardust bot",
+    "uptime": "Temps de fonctionement",
+    "version": "Version"
+  },
+  "clear": {
+    "all": "Des messages ont été supprimé avec succès",
+    "permisions_invalid": "Tu n'a pas asser de permissions",
+    "some": "message(s) viennent d'être supprimé"
+  },
   "default_activity": "Servir la communauté !",
   "message_ruler": {
-    "partage_invalid": "Dans le channel #partage, un message ne contenant pas d'url est considéré comme étant spam. Aussi nous avons supprimé ce message. Si vous avez une réclamation, contacter les Modérateurs.",
-    "about": {
-      "description": "Un bot pour la communauté"
-    }
+    "partage_invalid": "Dans le channel #partage, un message ne contenant pas d'url est considéré comme étant spam. Aussi nous avons supprimé ce message. Si vous avez une réclamation, contacter les Modérateurs/Staff."
   },
-	"clear.all": "Tout les messages ont été supprimé avec succès",
-	"clear.some": "**%s** message(s) viennent d'être supprimé",
-	"clear.permissions_invalid": "Tu n'a pas asser de permissions",
   "radio": {
     "ad": "Petite page de publicité",
-    "start": {
-      "success": ":musical_note: C'est parti!",
-      "error": {
-        "already_here": ":warning: Ahhh! tu pensais vraiment m'avoir ! Tu est déjà en train de m'écouter",
-        "already": ":warning: Whoops! Je suis déjà entrain de jouer ma musique dans un autre channel!",
-        "nobody": ":warning: Hum, j'ai pas l'intention de jouer ma musique devant une salle... vide, rejoins un channel vocal avant de venir me parler!",
-        "invalid_channel": ":warning: C'est dommage mais là je peux pas venir dans ton channel car c'est pas le bon, va dans \"Stardust Radio\""
-      }
-    },
-    "error": ":warning: Erreur: Une erreur fatale est survenu lors de la lecture du flux audio",
     "end": ":warning: Il semblerait que le flux audio se soit arrêté!",
+    "error": ":warning: Erreur: Une erreur fatale est survenu lors de la lecture du flux audio",
     "info": {
       "embed_title": "Je joue en ce moment",
-      "error": ":warning: Houston we have a problem... avec l'API de Radionomy. ``` HTTP ERROR AXIOS {$errorCode}```"
+      "error": ":warning: Houston we have a problem... avec l'API de Radionomy. "
+    },
+    "start": {
+      "error": {
+        "already": ":warning: Whoops! Je suis déjà entrain de jouer ma musique dans un autre channel!",
+        "already_here": ":warning: Ahhh! tu pensais vraiment m'avoir ! Tu est déjà en train de m'écouter",
+        "invalid_channel": ":warning: C'est dommage mais là je peux pas venir dans ton channel car c'est pas le bon, va dans \"Stardust Radio\"",
+        "nobody": ":warning: Hum, j'ai pas l'intention de jouer ma musique devant une salle... vide, rejoins un channel vocal avant de venir me parler!",
+        "error": "Une erreur inconnue a spawn"
+      },
+      "success": ":musical_note: C'est parti!"
     },
     "stop": {
       "no_connections": "Bah... comment dire... je suis pas connecté à un channel vocal donc bon ça risque pas de déranger quelqu'un",
       "success": "Alors comme ça on aime pas ma musique ?"
     }
   },
+  "stardust_congrat": [
+    ":wink: ta compris ?",
+    "Bah écoute... je ne peux que te féliciter",
+    ":thinking: :thinking: :thinking: c'était vraiment dur"
+  ],
   "when_mentioned": [
     "Alors la, bravo, bravo, on dit bravo !",
     "Nan sérieux ?",
@@ -66,10 +79,5 @@
     "Copy staging",
     "Five four three two one and lift off",
     "Comment faire ? Comment gérer tout ces gens... :thinking:"
-  ],
-  "stardust_congrat": [
-    ":wink: ta compris ?",
-    "Bah écoute... je ne peux que te féliciter",
-    ":thinking: :thinking: :thinking: c'était vraiment dur"
   ]
 }

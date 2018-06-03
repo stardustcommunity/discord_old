@@ -5,7 +5,7 @@ class Ping extends Command {
     }
 
     static action(message) {
-        message.channel.send(message.i18n.__('ping'))
+        message.channel.send(message.i18n.ping)
     }
 }
 module.exports = Ping

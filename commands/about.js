@@ -10,23 +10,23 @@ class About extends Command {
     static action(message) {
         var uptime = ms.to(h,m,s)(message.client.uptime)
         var data = {
-            title: "Stardust bot",
-            description: "Un bot pour la communauté",
+            title: message.i18n.about.title,
+            description: message.i18n.about.description,
             fields: [
                 {
-                    "name": "Version",
+                    "name": message.i18n.about.version,
                     "value": process.env.APP_VERSION
                 },
                 {
-                    "name": "Environment",
+                    "name": message.i18n.about.environment,
                     "value": process.env.APP_ENVIRONMENT
                 },
                 {
-                    "name": "Uptime",
+                    "name": message.i18n.about.uptime,
                     "value": uptime[0] + ' h, ' + uptime[1] + 'min, ' + uptime[2] + 'sec'
                 },
                 {
-                    "name": "Created by",
+                    "name": message.i18n.about.created_by,
                     "value": "<@169164454255263745>"
                 },
             ]

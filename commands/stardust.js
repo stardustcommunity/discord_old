@@ -6,7 +6,7 @@ class Stardust extends Command {
     }
 
     static action(message) {
-      message.reply(message.i18n.__('stardust_congrat')[Math.floor(Math.random() * message.i18n.__('stardust_congrat').length)])
+      message.reply(message.i18n.stardust_congrat[Math.floor(Math.random() * message.i18n.stardust_congrat.length)])
     }
 }
 module.exports = Stardust

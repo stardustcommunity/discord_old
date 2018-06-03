@@ -5,7 +5,7 @@ const convert = require('xml-js');
 const RadioMetas = require('../App/RadioMetas.js')
 class RadioInfo extends Command {
     static match(message) {
-        return this.startsWith(message, 'radio info') || this.startsWith(message, 'radio now')
+        return this.startsWith(message, 'radio info') || this.startsWith(message, 'radio now') || this.startsWith(message, 'radio fuck')
     }
 
     static action(message) {
@@ -13,7 +13,7 @@ class RadioInfo extends Command {
         const context = new RadioMetas()
         context.getMetas().then(response => {
             message.channel.send(new Discord.RichEmbed({
-                title: "Je joue en ce moment",
+                title: message.i18n.radio.info.embed_title,
                 description: response.track.title + ' - ' + response.track.artists,
                 image: {
                     url: response.track.cover
@@ -23,7 +23,7 @@ class RadioInfo extends Command {
             message.channel.stopTyping();
         }).catch(function (error) {
             console.log(error);
-            message.reply(":warning: Houston we have a problem... avec l'API de Radionomy. ``` HTTP ERROR AXIOS " + error.error.code +     "```")
+            message.reply(message.i18n.radio.info.error + " ``` HTTP ERROR AXIOS " + error.error.code +     "```")
 
             message.channel.stopTyping();
         });

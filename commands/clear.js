@@ -15,7 +15,7 @@ class Clear extends Command {
                         for (var i = 0; i < siz; i++) {
                             messages.array()[i].delete()
                         }
-                        message.author.send(message.i18n.__('clear.all'))
+                        message.author.send(message.i18n.clear.all)
                     })
                     .catch(console.error);
             } else {
@@ -38,18 +38,17 @@ class Clear extends Command {
                           for (var i = 0; i < size; i++) {
                               messages.array()[i].delete()
                           }
-                          message.author.send(message.i18n.__('clear.some', size))
-                          // message.author.send("**" + siz + "** message(s) viennent d'être supprimé")
+                          message.author.send("**" + size + "** " + message.i18n.clear.some)
                       })
                       .catch(console.error);
                 }else{
 
-                  message.author.send(message.i18n.__('clear.some', 0))
+                  message.author.send("**0** " + message.i18n.clear.some)
                 }
             }
         } else {
-            message.author.send(message.i18n.__('clear').permissions_invalid)
-        }        
+            message.author.send(message.i18n.clear.permissions_invalid)
+        }
         message.channel.stopTyping();
     }
 }

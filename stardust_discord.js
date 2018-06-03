@@ -6,10 +6,7 @@ const client = new Discord.Client();
 /**
   I18N
 **/
-var i18n = require('y18n')({
-  directory: "./locales",
-  locale: "fr"
-})
+var i18n = require('./locales/fr.json')
 
 /**
   ELASTICSARCH
@@ -29,7 +26,7 @@ require('dotenv').config()
   READY EVENT
 **/
 client.on('ready', () => {
-    client.user.setActivity(i18n.__('default_activity'))
+    client.user.setActivity(i18n.default_activity)
     console.log('=========== Bot ready! ===========')
 
     setTimeout(() => {
@@ -67,11 +64,12 @@ const Env = require('./commands/env')
 const About = require('./commands/about')
 const Responder = require('./commands/responder')
 const StardustResponder = require('./commands/stardust')
+const RandomChuckNorrisFact = require('./commands/randomchucknorrisfact')
 const MessageLogger = require('./App/MessageLogger')
 const MessageRuler = require('./App/MessageRuler')
 client.on('message', (msg) => {
     msg.i18n = i18n
-    Ping.parse(msg) || Clear.parse(msg) || StardustResponder.parse(msg) || Radio.parse(msg) || RadioInfo.parse(msg) || Stop.parse(msg) || About.parse(msg) || Env.parse(msg) || Responder.parse(msg)
+    Ping.parse(msg) || Clear.parse(msg) || StardustResponder.parse(msg) || RandomChuckNorrisFact.parse(msg) || Radio.parse(msg) || RadioInfo.parse(msg) || Stop.parse(msg) || About.parse(msg) || Env.parse(msg) || Responder.parse(msg)
     // MessageLogger.newMessage(msg, elasticsearchClient)
     MessageRuler.newMessage(msg);
 });

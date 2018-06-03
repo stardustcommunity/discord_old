@@ -8,7 +8,8 @@ class Responder extends Command {
         message.channel.startTyping()
         setTimeout(() => {
           message.channel.stopTyping();
-          message.reply(message.i18n.__('when_mentioned')[Math.floor(Math.random() * message.i18n.__('when_mentioned').length)])
+          var when_mentioned = message.i18n.when_mentioned
+          message.reply(when_mentioned[Math.floor(Math.random() * when_mentioned.length)])
         }, Math.floor(Math.random() * (1100 - 300)) + 300)
     }
 }
