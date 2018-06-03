@@ -7,7 +7,6 @@
     "elasticsearch": "^14.1.0",
     "express": "^4.15.4",
     "ffmpeg-binaries": "^3.2.2-3",
-    "i18n": "^0.8.3",
     "icecast-parser": "^3.0.0",
     "lun-phase": "^0.1.1",
     "moment": "^2.22.1",
@@ -19,6 +18,7 @@
     "url-regex": "^4.1.1",
     "uuid": "^3.2.1",
     "webhook-discord": "^2.1.0",
-    "xml-js": "^1.6.2"
+    "xml-js": "^1.6.2",
+    "y18n": "^4.0.0"
   }
 }

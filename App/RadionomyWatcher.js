@@ -44,9 +44,17 @@ class RadionomyWatcher {
           this.discordClient.user.setActivity(showed_title, { type: 'LISTENING' })
           console.log("On air : " + showed_title)
 
-          setTimeout(() => {
-              this.newLoop()
-          }, (response.end_in + 300));
+          if (response.end_in > -1) {
+            setTimeout(() => {
+                this.newLoop()
+            }, (response.end_in + 300))
+          }else{
+              console.log("ERROR: RADIONOMY WATCHER WITH END_IN TIME UNABLE TO SET TIMEOUT FATTAL ERROR")
+              console.log("retrying in 120 sec");
+              setTimeout(() => {
+                  this.newLoop()
+              }, (120000))
+          }
         }).catch((error) => {
             console.log("ERROR: RADIONOMY WATCHER")
             console.log(error)

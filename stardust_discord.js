@@ -6,12 +6,10 @@ const client = new Discord.Client();
 /**
   I18N
 **/
-const I18n = require("i18n")
-I18n.configure({
-    locales:['fr_FR'],
-    defaultLocale: 'fr_FR',
-    directory: __dirname + '/locales'
-});
+var i18n = require('y18n')({
+  directory: "./locales",
+  locale: "fr"
+})
 
 /**
   ELASTICSARCH
@@ -31,16 +29,15 @@ require('dotenv').config()
   READY EVENT
 **/
 client.on('ready', () => {
-    client.user.setActivity(I18n.__('default_activity'));
-
-    console.log('=========== Bot ready! ===========');
+    client.user.setActivity(i18n.__('default_activity'))
+    console.log('=========== Bot ready! ===========')
 
     setTimeout(() => {
-      //RADIONOMY
+      // RADIONOMY
       const RadionomyWatcher = require('./App/RadionomyWatcher')
-      const RadionomyWatcherInstance = new RadionomyWatcher(client, I18n)
+      const RadionomyWatcherInstance = new RadionomyWatcher(client, i18n)
       RadionomyWatcherInstance.newLoop()
-    }, 5000)
+    }, 1)
 });
 
 /**
@@ -73,7 +70,7 @@ const StardustResponder = require('./commands/stardust')
 const MessageLogger = require('./App/MessageLogger')
 const MessageRuler = require('./App/MessageRuler')
 client.on('message', (msg) => {
-    msg.i18n = I18n
+    msg.i18n = i18n
     Ping.parse(msg) || Clear.parse(msg) || StardustResponder.parse(msg) || Radio.parse(msg) || RadioInfo.parse(msg) || Stop.parse(msg) || About.parse(msg) || Env.parse(msg) || Responder.parse(msg)
     // MessageLogger.newMessage(msg, elasticsearchClient)
     MessageRuler.newMessage(msg);

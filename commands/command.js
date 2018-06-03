@@ -1,5 +1,5 @@
 class Command {
-    static parse(message) {
+    static parse(message, context = {}) {
         if (this.match(message)){
             this.action(message)
             return true
