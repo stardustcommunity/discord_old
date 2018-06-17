@@ -15,7 +15,7 @@ The main discord bot of the discord guild/server
 - [Discord.Js](https://discord.js.org/#)
 - See `package.json` :joy:
 
-## Installation 
+## Installation
 
 - Clone this repository
 - `npm install`
@@ -28,7 +28,7 @@ or with [PM2](http://pm2.keymetrics.io/)
 
 `pm2 start stardust_discord.js`
 
-## Development 
+## Development
 
 File watcher with [Nodemon](https://github.com/remy/nodemon)
 

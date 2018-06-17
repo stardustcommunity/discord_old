@@ -23,6 +23,7 @@
     "error": ":warning: Erreur: Une erreur fatale est survenu lors de la lecture du flux audio",
     "info": {
       "embed_title": "Je joue en ce moment",
+      "lyrics": "Voci les paroles de la musique, si jamais tu veux chanter avec moi...",
       "error": ":warning: Houston we have a problem... avec l'API de Radionomy. "
     },
     "start": {
@@ -91,6 +92,7 @@
       "radio_start": "Permet de démarrer la radio Stardust",
       "radio_stop": "Permet de stopper la radio Stardust",
       "radio_info": "Affiche la musique qui est joué actuellement sur la radio Stardust",
+      "radio_lyrics": "Donne le lien pour suivre les paroles de la chanson, classe nan ?",
       "about": "Affiche quelques informations sur le bot"
     }
   }

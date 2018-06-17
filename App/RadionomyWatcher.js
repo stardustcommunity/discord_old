@@ -47,7 +47,7 @@ class RadionomyWatcher {
           if (response.end_in > -1) {
             setTimeout(() => {
                 this.newLoop()
-            }, (response.end_in + 300))
+            }, (response.end_in + 1000))
           }else{
               console.log("ERROR: RADIONOMY WATCHER WITH END_IN TIME UNABLE TO SET TIMEOUT FATTAL ERROR")
               console.log("retrying in 120 sec");

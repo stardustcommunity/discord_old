@@ -60,6 +60,7 @@ const Ping = require('./commands/ping')
 const Clear = require('./commands/clear')
 const Radio = require('./commands/radio')
 const RadioInfo = require('./commands/radio_info')
+const RadioLyrics = require('./commands/radio_lyrics')
 const Stop = require('./commands/radio_stop')
 const Env = require('./commands/env')
 const About = require('./commands/about')
@@ -71,7 +72,19 @@ const MessageLogger = require('./App/MessageLogger')
 const MessageRuler = require('./App/MessageRuler')
 client.on('message', (msg) => {
     msg.i18n = i18n
-    Help.parse(msg) || Ping.parse(msg) || Clear.parse(msg) || StardustResponder.parse(msg) || YesOrNo.parse(msg) || RandomChuckNorrisFact.parse(msg) || Radio.parse(msg) || RadioInfo.parse(msg) || Stop.parse(msg) || About.parse(msg) || Env.parse(msg) || Responder.parse(msg)
+    Help.parse(msg)
+    || Ping.parse(msg)
+    || Clear.parse(msg)
+    || StardustResponder.parse(msg)
+    || YesOrNo.parse(msg)
+    || RandomChuckNorrisFact.parse(msg)
+    || Radio.parse(msg)
+    || RadioInfo.parse(msg)
+    || RadioLyrics.parse(msg)
+    || Stop.parse(msg)
+    || About.parse(msg)
+    || Env.parse(msg)
+    || Responder.parse(msg);
     // MessageLogger.newMessage(msg, elasticsearchClient)
     MessageRuler.newMessage(msg);
 });

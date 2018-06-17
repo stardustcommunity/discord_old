@@ -3,9 +3,9 @@ const Discord = require("discord.js");
 const axios = require('axios')
 const convert = require('xml-js');
 const RadioMetas = require('../App/RadioMetas.js')
-class RadioInfo extends Command {
+class RadioLyrics extends Command {
     static match(message) {
-        return this.startsWith(message, 'radio info') || this.startsWith(message, 'radio now') || this.startsWith(message, 'radio fuck')
+        return this.startsWith(message, 'radio lyrics') || this.startsWith(message, 'radio lyric')
     }
 
     static action(message) {
@@ -13,14 +13,7 @@ class RadioInfo extends Command {
         const context = new RadioMetas()
         context.getMetas().then(response => {
 
-            message.channel.send(new Discord.RichEmbed({
-                title: message.i18n.radio.info.embed_title,
-                url: response.lyrics_url,
-                description: response.track.title + ' - ' + response.track.artists,
-                image: {
-                    url: response.track.cover
-                },
-            }))
+            message.channel.send(message.i18n.radio.info.lyrics + " " + response.lyrics_url)
 
             message.channel.stopTyping();
         }).catch(function (error) {
@@ -31,4 +24,4 @@ class RadioInfo extends Command {
         });
     }
 }
-module.exports = RadioInfo
+module.exports = RadioLyrics

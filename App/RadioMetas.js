@@ -21,6 +21,20 @@ class RadioMetas {
     })
   }
 
+  getLyricsUrl(track){
+    return new Promise((resolve, reject) => {
+      axios.get("http://api.musixmatch.com/ws/1.1/track.search?q_track=" + track.title + "&q_artist=" + track.artists + "&apikey=" + process.env.MUSIXMATCH_API_KEY).then((response) => {
+        var url = ""
+        if (response.data.message.body.track_list[0] != undefined) {
+          var url = response.data.message.body.track_list[0].track.track_share_url
+        }
+        resolve(url)
+      }).catch((error) => {
+        reject(error)
+      })
+    })
+  }
+
   getMetas() {
     return new Promise((resolve, reject) => {
       axios.get("http://api.radionomy.com/currentsong.cfm?radiouid=" + this.params.radioUid + "&type=xml&cover=yes&defaultcover=yes&size=90&dynamicconf=yes", {timeout: this.params.timeout}).then(response => {
@@ -38,7 +52,7 @@ class RadioMetas {
           var end_at = moment(track.start_time).add(track.play_duration, "ms")
           var end_in = end_at.diff(moment())
 
-          if (track.title == "Advert:TargetSpot") {
+          if (track.title == "Advert:TargetSpot" || track.title == "" || track.title == undefined) {
 
             resolve({
               success: true,
@@ -46,17 +60,27 @@ class RadioMetas {
                 cover: ""
               },
               end_in: end_in,
+              lyrics_url: "",
               is_ad: true
             })
           }else{
 
-            this.getDeezerCover(track).then((cover) => {
-              track.cover = cover
-              resolve({
-                success: true,
-                track: track,
-                end_in: end_in,
-                is_ad: false
+            this.getLyricsUrl(track).then((lyrics_url) => {
+              //remove all of the query params in the lyrics_url
+              var start_of_query_params = lyrics_url.indexOf("?")
+              lyrics_url = lyrics_url.substr(0, start_of_query_params)
+              //end of clening queries params
+              this.getDeezerCover(track).then((cover) => {
+                track.cover = cover
+                resolve({
+                  success: true,
+                  track: track,
+                  lyrics_url: lyrics_url,
+                  end_in: end_in,
+                  is_ad: false
+                })
+              }).catch((error) => {
+                reject(error)
               })
             }).catch((error) => {
               reject(error)

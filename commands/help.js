@@ -37,6 +37,10 @@ class Help extends Command {
               value: message.i18n.help.fields.radio_info
             },
             {
+              name: "!!radio lyrics",
+              value: message.i18n.help.fields.radio_lyrics
+            },
+            {
               name: "!!about",
               value: message.i18n.help.fields.about
             }
