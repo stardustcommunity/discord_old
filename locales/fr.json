@@ -80,5 +80,18 @@
     "Five four three two one and lift off",
     "Comment faire ? Comment gérer tout ces gens... :thinking:"
   ],
-  "error_general": "Une erreur est survenu, merci de contacter <@169164454255263745>"
+  "error_general": "Une erreur est survenu, merci de contacter <@169164454255263745>",
+  "help": {
+    "title": "Aide du bot",
+    "description": "Voici quelques commandes qui peuvent t'être utile",
+    "fields": {
+      "ping": "Savoir si oui ou non le bot dort",
+      "chucknorrisfact": "Affiche une Chuck Norris Fact au hazard",
+      "yesorno": "Permet de trancher pour longtemps un débat",
+      "radio_start": "Permet de démarrer la radio Stardust",
+      "radio_stop": "Permet de stopper la radio Stardust",
+      "radio_info": "Affiche la musique qui est joué actuellement sur la radio Stardust",
+      "about": "Affiche quelques informations sur le bot"
+    }
+  }
 }

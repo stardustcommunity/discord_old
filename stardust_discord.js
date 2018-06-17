@@ -55,6 +55,7 @@ cron.schedule('0 0 * * *', function () {
   MESSAGE EVENT
 **/
 //load modules
+const Help = require('./commands/help')
 const Ping = require('./commands/ping')
 const Clear = require('./commands/clear')
 const Radio = require('./commands/radio')
@@ -70,7 +71,7 @@ const MessageLogger = require('./App/MessageLogger')
 const MessageRuler = require('./App/MessageRuler')
 client.on('message', (msg) => {
     msg.i18n = i18n
-    Ping.parse(msg) || Clear.parse(msg) || StardustResponder.parse(msg) || YesOrNo.parse(msg) || RandomChuckNorrisFact.parse(msg) || Radio.parse(msg) || RadioInfo.parse(msg) || Stop.parse(msg) || About.parse(msg) || Env.parse(msg) || Responder.parse(msg)
+    Help.parse(msg) || Ping.parse(msg) || Clear.parse(msg) || StardustResponder.parse(msg) || YesOrNo.parse(msg) || RandomChuckNorrisFact.parse(msg) || Radio.parse(msg) || RadioInfo.parse(msg) || Stop.parse(msg) || About.parse(msg) || Env.parse(msg) || Responder.parse(msg)
     // MessageLogger.newMessage(msg, elasticsearchClient)
     MessageRuler.newMessage(msg);
 });
