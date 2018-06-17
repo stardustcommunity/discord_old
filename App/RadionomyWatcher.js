@@ -4,9 +4,9 @@ const Discord = require("discord.js")
 const RadioMetas = require('../App/RadioMetas.js')
 var moment = require('moment');
 class RadionomyWatcher {
-    constructor(discordClient, I18n) {
+    constructor(discordClient, i18n) {
         this.discordClient = discordClient;
-        this.i18n = I18n;
+        this.i18n = i18n;
         this.textChannelId = process.env.DISCORD_RADIO_TEXT_CHANNEL_ID;
     }
 
@@ -23,7 +23,7 @@ class RadionomyWatcher {
           var track = response.track
 
           if (response.is_ad) {
-            var showed_title = this.i18n.__('radio').ad
+            var showed_title = this.i18n.radio.ad
             var volume = 0
           }else{
             var showed_title = track.title + " - " + track.artists
