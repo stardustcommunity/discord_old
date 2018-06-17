@@ -65,11 +65,12 @@ const About = require('./commands/about')
 const Responder = require('./commands/responder')
 const StardustResponder = require('./commands/stardust')
 const RandomChuckNorrisFact = require('./commands/randomchucknorrisfact')
+const YesOrNo = require('./commands/yesorno')
 const MessageLogger = require('./App/MessageLogger')
 const MessageRuler = require('./App/MessageRuler')
 client.on('message', (msg) => {
     msg.i18n = i18n
-    Ping.parse(msg) || Clear.parse(msg) || StardustResponder.parse(msg) || RandomChuckNorrisFact.parse(msg) || Radio.parse(msg) || RadioInfo.parse(msg) || Stop.parse(msg) || About.parse(msg) || Env.parse(msg) || Responder.parse(msg)
+    Ping.parse(msg) || Clear.parse(msg) || StardustResponder.parse(msg) || YesOrNo.parse(msg) || RandomChuckNorrisFact.parse(msg) || Radio.parse(msg) || RadioInfo.parse(msg) || Stop.parse(msg) || About.parse(msg) || Env.parse(msg) || Responder.parse(msg)
     // MessageLogger.newMessage(msg, elasticsearchClient)
     MessageRuler.newMessage(msg);
 });
