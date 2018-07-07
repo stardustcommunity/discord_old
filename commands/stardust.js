@@ -2,7 +2,7 @@ const  Command = require('./command.js')
 class Stardust extends Command {
     static match(message) {
        var content = message.content
-       return content.includes('étoile') || content.includes('étoiles') || content.includes('etoile') || content.includes('etoiles') && message.isMentioned(message)
+       return content.includes('d\'étoile') || content.includes('d\'étoiles') || content.includes('d\'etoile') || content.includes('d\'toiles') && message.isMentioned(message)
     }
 
     static action(message) {
