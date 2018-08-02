@@ -9,9 +9,9 @@
     "version": "Version"
   },
   "clear": {
-    "all": "Des messages ont été supprimé avec succès",
-    "permisions_invalid": "Tu n'a pas asser de permissions",
-    "some": "message(s) viennent d'être supprimé"
+    "all": "Des messages ont été supprimés avec succès",
+    "permisions_invalid": "Tu n'as pas assez de permissions",
+    "some": "message(s) viennent d'être supprimés"
   },
   "default_activity": "Servir la communauté !",
   "message_ruler": {
@@ -20,10 +20,10 @@
   "radio": {
     "ad": "Petite page de publicité",
     "end": ":warning: Il semblerait que le flux audio se soit arrêté!",
-    "error": ":warning: Erreur: Une erreur fatale est survenu lors de la lecture du flux audio",
+    "error": ":warning: Erreur: Une erreur fatale est survenue lors de la lecture du flux audio",
     "info": {
       "embed_title": "Je joue en ce moment",
-      "lyrics": "Voci les paroles de la musique, si jamais tu veux chanter avec moi...",
+      "lyrics": "Voici les paroles de la musique, si jamais tu veux chanter avec moi...",
       "error": ":warning: Houston we have a problem... avec l'API de Radionomy. "
     },
     "start": {
@@ -42,7 +42,7 @@
     }
   },
   "stardust_congrat": [
-    ":wink: ta compris ? ...je sers à rien",
+    ":wink: t'as compris ? ...je sers à rien",
     "Bah écoute... je ne peux que te féliciter... ça sert à rien comme feature oui",
     ":thinking: :thinking: :thinking: c'était vraiment dur, nan vraiment, ça sert à rien",
     "Je sers à rien :thinking:",
@@ -52,7 +52,7 @@
     "Contribuez sur github pour me rendre plus smart !"
   ],
   "when_mentioned": [
-    "Alors la, bravo, bravo, on dit bravo !",
+    "Alors là, bravo, bravo, on dit bravo !",
     "Nan sérieux ?",
     "Hein quoi ? Nan c'est pas vrai",
     "Je pense que non",
@@ -61,12 +61,11 @@
     "Comment ?",
     "Nan mais c'est pas possible",
     "Je le savais !",
-    "Vraiment je pense être doué d'une intelligence... sans frontière",
+    "Vraiment je pense être doué d'une intelligence... sans frontières",
     "Toi et moi, on s'aime ?",
     "C'est vraiment ce qui fait notre amitié, oui.",
     "Roger roll, Discovery",
     "Kopy that",
-    "Je suis le bot Strastuds, je suis ici pour vous servir.",
     "Main engine ignition, 3, 2, 1. Boosters ignition, And lift off! We have lift off! Lift off of the space shuttle Columbia!",
     "Hey hey",
     "Je t'aime :heart:",
@@ -86,9 +85,9 @@
     "Copy staging",
     "Tu m'as ping c'est bien ça ?",
     "Five four three two one and lift off",
-    "Comment faire ? Comment gérer tout ces gens... :thinking:"
+    "Comment faire ? Comment gérer tous ces gens... :thinking:"
   ],
-  "error_general": "Une erreur est survenu, merci de contacter <@169164454255263745>",
+  "error_general": "Une erreur est survenue, merci de contacter <@169164454255263745>",
   "help": {
     "title": "Aide du bot",
     "description": "Voici quelques commandes qui peuvent t'être utile",
@@ -98,7 +97,7 @@
       "yesorno": "Permet de trancher pour longtemps un débat",
       "radio_start": "Permet de démarrer la radio Stardust",
       "radio_stop": "Permet de stopper la radio Stardust",
-      "radio_info": "Affiche la musique qui est joué actuellement sur la radio Stardust",
+      "radio_info": "Affiche la musique qui est jouée actuellement sur la radio Stardust",
       "radio_lyrics": "Donne le lien pour suivre les paroles de la chanson, classe nan ?",
       "about": "Affiche quelques informations sur le bot"
     }
